@@ -1,0 +1,159 @@
+
+.about-section {
+
+}
+
+.about-top {
+    background-image: url('../../images/about-top.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+}
+
+.about-top::after {
+    display: block;
+    content: "";
+    background-color: rgba(19, 17, 17, 0.7);
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    z-index: 0;
+}
+
+.about-heading {    
+    position: relative;
+    z-index: 2;
+}
+
+.blockquote{
+    max-width: 800px;
+    color: #fff;
+    position: relative;
+    z-index: 2;
+}
+
+.author{
+    font-style: italic;
+    color: #ff6600;
+
+}
+
+.about-bottom {
+    padding: 100px 0;
+}
+
+.about-bottom-content {
+    display: flex;
+    align-items: center;
+}
+
+.about-img-box {
+    margin-right: 50px;
+}
+
+.about-img {
+    max-width: 470px;
+    border-radius: 10px;
+}
+
+.about-right-box {
+
+}
+
+.about-bottom-heading {
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    color: #ff6600;
+    font-weight: 500;
+    font-size: 20px;
+    margin: 0;
+    padding: 0;
+}
+
+.about-bottom-second-heading {
+    color: #44425a;
+    text-transform: capitalize;
+    font-weight: 700;
+    font-size: 40px;
+}
+
+.about-bottom-text {
+    color: #6C6A74;
+    font-size: 18px;
+
+}
+
+
+@media only screen and (max-width: 1160px) {
+    .about-bottom-second-heading {
+        font-size: 36px;
+    }
+    
+    .about-bottom-text {
+        font-size: 16px;    
+    }
+}
+
+@media only screen and (max-width: 1105px) {
+    .about-bottom-second-heading {
+        font-size: 30px;
+        margin: 0;
+        padding: 0;
+    }
+    
+    .about-bottom-text {
+        font-size: 16px;    
+    }
+}
+
+@media only screen and (max-width: 1015px) {
+    .about-img {
+        max-width: 370px;
+    }
+
+    .about-bottom-heading {
+        font-size: 18px;
+    }
+    
+    .about-bottom-second-heading {
+        font-size: 24px;
+    }
+    
+    .about-bottom-text {
+        font-size: 14px;
+    
+    }
+}
+
+@media only screen and (max-width: 830px) {
+    .about-bottom-content {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .about-bottom-heading {
+        margin-top: 40px;
+    }
+
+    .about-img-box {
+        margin-right: 0px;
+    }
+    
+    .about-img {
+        max-width: 100%;
+    }
+}
+
+@media only screen and (max-width: 760px) {
+    .blockquote{
+        font-size: 20px;
+    }
+}
+
+@media only screen and (max-width: 400px) {
+    .blockquote{
+        font-size: 16px;
+    }
+}

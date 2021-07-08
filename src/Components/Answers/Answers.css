@@ -1,0 +1,138 @@
+.answer-top-box {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    position: relative;
+    z-index: 2;
+}
+
+.question-categories-list {
+    list-style-type: none;
+    color: #fff;
+    width: 300px;
+    margin: 50px auto;
+}
+
+.question-categories-item {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid rgb(238, 229, 229);
+    margin-bottom: 12px;
+    padding-bottom: 12px;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.question-categories-item:hover {
+    transform: scale(1.1);
+}
+
+.question-categories-subject {
+    padding: 0;
+    margin: 0;
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.question-categories-count {
+    background-color: #ff6600;
+    border-radius: 12px;
+    padding: 0;
+    margin: 0;
+    padding: 0px 8px;
+    font-weight: 500;
+    font-size: 14px;
+    padding-top: 2px;
+}
+
+.answer-content {
+    padding-top: 50px;
+}
+
+.answer-questions-list {
+    margin-top: 30px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;;
+}
+
+.answer-questions-item {
+    width: 270px;
+    margin: 15px;
+}
+
+.questions-item-bottom-box {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.view-btn{
+    background-color: #ff6600;
+    color: #fff;
+    border: none;
+    padding: 3px 6px;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 500;
+    transition: 0.3s ease;
+    white-space: nowrap;
+    margin-top: 5px;
+}
+
+.view-btn:hover {
+    cursor: pointer;
+    background-color: #ce5707;
+}
+
+.answer-form {
+    margin-left: auto;
+    margin-right: auto;
+
+}
+
+.answer-form-btn-box {
+    display: flex;
+    justify-content: space-between;
+    width: 106%;
+}
+
+.question-card {
+    max-width: 760px;
+    margin: 50px auto;
+}
+
+.question-card-date {
+    color: #ff6600;
+    font-weight: 500;
+    font-size: 18px;
+    padding: 0;
+    margin: 0;
+}
+
+.question-card-title {
+    padding: 0;
+    margin: 0;
+    font-weight: 700;
+    color: #44425a;
+    margin-bottom: 20px;
+}
+
+.question-card-image {
+    width: 100%;
+    border-radius: 8px;
+}
+
+.question-card-content {
+    color: #44425a;
+    font-weight: 500;
+    font-size: 18px;
+}
+
+.question-card-btn-box {
+    display: flex;
+    justify-content: space-around;
+}

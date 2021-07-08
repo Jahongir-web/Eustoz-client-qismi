@@ -1,16 +1,17 @@
+import { Link } from "react-router-dom"
 
 import "./Main.css"
 
 function Main () {
 
     return (
-        <main>
+        <main className='main-section'>
             <div className="main-top">
                 <div className="container">
                     <div className="main-content">
                         <p className="main-text">O'rganish uchun eng yaxshi va qulay platforma</p>
                         <h1 className='main-heading'>Uydan chiqmagan holda O'rganishning yangi usuli</h1>
-                        <button className='btn-primary'>Batafsil</button>
+                        <Link to='/about' className='btn-primary'>Batafsil</Link>
                     </div>
                 </div>
             </div>

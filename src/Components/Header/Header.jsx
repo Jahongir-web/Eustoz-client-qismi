@@ -1,17 +1,20 @@
-import React from 'react'
+import React, { useState} from 'react'
+import { Link } from 'react-router-dom'
 
 import './Header.css'
 
 function Header () {
 
+    const [menu, setMenu] = useState(false)
+
     return (
-        <header className='site-header menu-open'>
+        <header className={ menu ? 'site-header menu-open' : 'site-header'}>
             <div className="container">
                 <div className="site-header__top">
                     <div className="logo-box">
-                        <a className='logo-link' href="/">
+                        <Link className='logo-link' to="/">
                             <h1 className='logo-text'><span className='text-primary'>E</span>Ustoz</h1>
-                        </a>
+                        </Link>
                     </div>
                     <div className="header-box">
                         <i className='fa fa-2x fa-map-marker-alt font-icon'></i>
@@ -35,7 +38,7 @@ function Header () {
                         </div>
                     </div>
 
-                    <button className='menu-btn'>
+                    <button onClick={() => setMenu(!menu)} className='menu-btn'>
                         <span className='menu-span menu-span__first'></span>
                         <span className='menu-span menu-span__second'></span>
                         <span className='menu-span menu-span__third'></span>
@@ -49,24 +52,24 @@ function Header () {
                 <nav className='site-header__nav'>
                     <ul className="navbar-list">
                         <li className="navbar-item">
-                            <a href="/" className="nav-link active">Asosiy</a>
+                            <Link to="/" className="nav-link active">Asosiy</Link>
                         </li>
                         <li className="navbar-item">
-                            <a href="/" className="nav-link">Biz Haqimizda</a>
+                            <Link to="/about" className="nav-link">Biz Haqimizda</Link>
                         </li>
                         <li className="navbar-item">
-                            <a href="/" className="nav-link">Ustozlar</a>
+                            <Link to="/teachers" className="nav-link">Ustozlar</Link>
                         </li>
                         <li className="navbar-item">
-                            <a href="/" className="nav-link">Bog'lanish</a>
+                            <Link to="/contact" className="nav-link">Bog'lanish</Link>
                         </li>
                         <li className="navbar-item">
-                            <a href="/" className="nav-link">Savol Yo'llash</a>
+                            <Link to="/questions" className="nav-link">Savol Yo'llash</Link>
                         </li>
                     </ul>
                     <div className="navbar-btn__box">
-                        <button className='navbar-btn'>Kirish</button>
-                        <button className='navbar-btn'>Register</button>
+                        <Link to='/login' className='navbar-btn'>Kirish</Link>
+                        <Link to='/signup' className='navbar-btn'>Register</Link>
                     </div>
                 </nav>
             </div>
