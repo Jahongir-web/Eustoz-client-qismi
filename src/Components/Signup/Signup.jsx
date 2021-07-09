@@ -1,8 +1,10 @@
-
+import { useState } from 'react'
 
 import './Signup.css'
 
 function Signup () {
+
+    const [show, setShow] = useState(false)
 
     return (
         <main>
@@ -29,18 +31,29 @@ function Signup () {
                                 <input className='signup-input' type="password" name='password' placeholder='Parol kiriting' required/>
                                 <input className='signup-input' type="password" name='confirm-password' placeholder='Parolni takrorlang' required/>
                                 
-                                <select name="role" id="signup-role">
+                                <select onChange={(e) => {
+                                    if (e.target.value === 'teacher') {
+                                        setShow(true)
+                                    } else {
+                                        setShow(false)
+                                    }
+                                }} name="role" id="signup-role">
                                     <option value="">Kim sifatida</option>
-                                    <option value="teachers">Ustoz</option>
+                                    <option value="teacher">Ustoz</option>
                                     <option value="student">O'quvchi</option>
                                 </select>
 
-                                <select name="subject" id="signup-subject">
-                                    <option value="">Qaysi fandan</option>
-                                    <option value="matematika">Matematika</option>
-                                    <option value="kimyo">Kimyo</option>
-                                    <option value="musiqa">Musiqa</option>
-                                </select>
+                                {
+                                    show && (
+                                        <select name="subject" id="signup-subject">
+                                            <option value="">Qaysi fandan</option>
+                                            <option value="matematika">Matematika</option>
+                                            <option value="kimyo">Kimyo</option>
+                                            <option value="musiqa">Musiqa</option>
+                                        </select>
+                                    )
+                                }
+
                                 
                                 <label className='signup-input-label' htmlFor="signup-photo"><i className='fa fa-1x fa-camera signup-photo-icon'></i>Rasmingizni yuklang</label>
 

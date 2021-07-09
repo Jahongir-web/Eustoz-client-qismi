@@ -1,4 +1,4 @@
-import React, { useState} from 'react'
+import React, { useState, useRef} from 'react'
 import { Link } from 'react-router-dom'
 
 import './Header.css'
@@ -6,6 +6,20 @@ import './Header.css'
 function Header () {
 
     const [menu, setMenu] = useState(false)
+
+    const menuRef = useRef()
+
+
+    // linklarga active classini berish uchun function
+    const changeClass = (e) => {
+        let menuItems = menuRef.current.childNodes
+        menuItems.forEach(element => {
+            element.className='navbar-item'                          
+        })
+
+        e.target.parentElement.className = 'navbar-item active'
+        setMenu(false)
+    }
 
     return (
         <header className={ menu ? 'site-header menu-open' : 'site-header'}>
@@ -50,9 +64,10 @@ function Header () {
 
             <div className="container">
                 <nav className='site-header__nav'>
-                    <ul className="navbar-list">
-                        <li className="navbar-item">
-                            <Link to="/" className="nav-link active">Asosiy</Link>
+                    <ul onClick = {changeClass} className="navbar-list" ref={menuRef}>
+
+                        <li className="navbar-item active">
+                            <Link to="/" className="nav-link">Asosiy</Link>
                         </li>
                         <li className="navbar-item">
                             <Link to="/about" className="nav-link">Biz Haqimizda</Link>
@@ -67,9 +82,11 @@ function Header () {
                             <Link to="/questions" className="nav-link">Savol Yo'llash</Link>
                         </li>
                     </ul>
-                    <div className="navbar-btn__box">
-                        <Link to='/login' className='navbar-btn'>Kirish</Link>
-                        <Link to='/signup' className='navbar-btn'>Register</Link>
+                    <div onClick={changeClass} className="navbar-btn__box">
+                        <div>
+                            <Link to='/login' className='navbar-btn'>Kirish</Link>
+                            <Link to='/signup' className='navbar-btn'>Register</Link>
+                        </div>
                     </div>
                 </nav>
             </div>

@@ -75,17 +75,21 @@
     display: flex;
 }
 
+.navbar-item {
+    color: #6C6A74;
+    transition: 0.3s ease;
+}
+
 .nav-link{
     text-decoration: none;
     font-size: 20px;
     line-height: 1.5rem;
     font-weight: 500;
-    color: #6C6A74;
+    color: inherit;
     padding: 20px 15px;
-    transition: 0.3s ease;
 }
 
-.nav-link:hover {
+.navbar-item:hover {
     color: #ff6600;
 }
 
@@ -214,6 +218,10 @@ hr {
 
     .navbar-item {
         margin-bottom: 5px;
+    }
+
+    .nav-link{
+        padding: 3px 15px;
     }
 
     .navbar-btn__box{
