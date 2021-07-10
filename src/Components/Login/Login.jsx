@@ -1,6 +1,9 @@
-
+import { useRef } from 'react'
 
 function Login () {
+
+    const emailRef = useRef()
+    const passwordRef = useRef()
 
     return (
         <main>
@@ -19,10 +22,32 @@ function Login () {
 
                         <div className="signup-right-box">
 
-                            <form className='signup-form' action="">
+                            <form className='signup-form' action="" onSubmit={async (e) => {
+                                e.preventDefault()
+
+                                const formData = new FormData()
+
+                                formData.append('email', emailRef.current.value)
+                                formData.append('password', passwordRef.current.value)
+
+                                const res = await fetch('http://localhost:4001/login', {
+                                    method: "post",
+                                    body: formData,
+                                    redirect: 'follow'
+                                })
+
+                                let json = await res.json()
+
+                                if(json.accessToken) {
+                                    window.localStorage.setItem('access_token', json.accessToken)
+                                    // setLogin(true)
+                                    // history.pushState('/')
+                                }
+
+                            }}>
                                 <h2 className='signup-form-heading'>Kirish</h2>
-                                <input className='signup-input' type="text" name='name' placeholder='Ismingiz' required/>
-                                <input className='signup-input' type="password" name='password' placeholder='Parolni kiriting' required/>
+                                <input ref={emailRef} className='signup-input' type="email" name='email' placeholder='Email' required/>
+                                <input ref={passwordRef} className='signup-input' type="password" name='password' placeholder='Parolni kiriting' required/>
                                 <button className='signup-btn'>Kirish</button>
 
                             </form>
