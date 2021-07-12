@@ -1,8 +1,15 @@
 import { useState, useRef } from 'react'
+import { useHistory } from 'react-router-dom'
+
+import { useInfo } from '../../Context'
 
 import './Signup.css'
 
 function Signup () {
+
+    const [, setLogin, , , , , , , , , urlServer] = useInfo()
+
+    const history = useHistory()
 
     const [show, setShow] = useState(false)
 
@@ -56,7 +63,7 @@ function Signup () {
                                 }
 
                                 if (passwordRef.current.value === confPasswordRef.current.value) {
-                                    const res = await fetch('http://localhost:4001/signup', {
+                                    const res = await fetch(`${urlServer}/signup`, {
                                         method: 'post',
                                         body: formData,
                                         redirect: 'follow'
@@ -67,8 +74,8 @@ function Signup () {
     
                                     if(json.accessToken) {
                                         window.localStorage.setItem('access_token', json.accessToken)
-                                        // setLogin(true)
-                                        // history.pushState('/')
+                                        setLogin(true)
+                                        history.push('/')
                                     }
                                 } else {
                                     alert("Parolni turlicha kirittingiz, iltimos diqqatli bo'ling")

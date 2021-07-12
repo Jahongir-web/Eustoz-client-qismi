@@ -1,8 +1,46 @@
+import { useEffect } from "react"
 import { Link } from "react-router-dom"
+
+import { useInfo } from '../../Context'
 
 import "./Main.css"
 
 function Main () {
+
+    const [, setLogin, , setRole, , setUsername, , setUserId, , setAdmin, urlServer] = useInfo()
+
+    try {
+        useEffect(() => {
+            ;(async () => {
+                const response = await fetch(`${urlServer}/`, {
+                    method: 'get',
+                    headers: {access_token: window.localStorage.getItem('access_token')},
+                })
+                const json = await response.json()
+                if(json.user_id) {
+                    window.localStorage.setItem('user_id', json.user_id)
+                    window.localStorage.setItem('username', json.username)
+                    setUserId(json.user_id)
+                    setLogin(true)
+                    setUsername(json.username)
+                    if(json.userrole === 'teacher') {
+                        setAdmin(false)
+                        setRole(true)
+                    } else if(json.userrole === 'admin') {
+                        setAdmin(true)
+                    } else {
+                        setAdmin(false)
+                        setRole(false)
+                    }
+                }
+            })()
+        })
+        
+    } catch (error) {
+        console.log(error.message)
+    }
+   
+
 
     return (
         <main className='main-section'>

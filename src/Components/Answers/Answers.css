@@ -32,6 +32,7 @@
     margin: 0;
     font-size: 18px;
     font-weight: 500;
+    text-transform: capitalize;
 }
 
 .question-categories-count {
@@ -81,6 +82,7 @@
     transition: 0.3s ease;
     white-space: nowrap;
     margin-top: 5px;
+    margin-left: 10px;
 }
 
 .view-btn:hover {
@@ -103,6 +105,9 @@
 .question-card {
     max-width: 760px;
     margin: 50px auto;
+    border: 1px solid #ff6600;
+    padding: 15px;
+    border-radius: 8px;
 }
 
 .question-card-date {
@@ -119,6 +124,7 @@
     font-weight: 700;
     color: #44425a;
     margin-bottom: 20px;
+    text-align: center;
 }
 
 .question-card-image {
@@ -130,6 +136,7 @@
     color: #44425a;
     font-weight: 500;
     font-size: 18px;
+    text-align: center;
 }
 
 .question-card-btn-box {

@@ -1,9 +1,15 @@
 import React, { useState, useRef} from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useHistory } from 'react-router-dom'
+
+import { useInfo } from '../../Context'
 
 import './Header.css'
 
 function Header () {
+
+    const [login, setLogin, role, setRole, username, , , , admin, setAdmin] = useInfo()
+
+    const history = useHistory()
 
     const [menu, setMenu] = useState(false)
 
@@ -76,17 +82,38 @@ function Header () {
                             <Link to="/teachers" className="nav-link">Ustozlar</Link>
                         </li>
                         <li className="navbar-item">
-                            <Link to="/contact" className="nav-link">Bog'lanish</Link>
+                            <Link to="/contact" className="nav-link">{admin ? "Xabarlar" : "Bog'lanish"}</Link>
                         </li>
                         <li className="navbar-item">
-                            <Link to="/questions" className="nav-link">Savol Yo'llash</Link>
+                            {
+                                admin ? (<Link to="/students" className="nav-link">O'quvchilar</Link>) : (
+                                role ? (<Link to="/answers" className="nav-link">Savollar</Link>) : (<Link to={login ? "/questions" : "/login"} className="nav-link">Savol Yo'llash</Link>))
+                            }
                         </li>
                     </ul>
                     <div onClick={changeClass} className="navbar-btn__box">
-                        <div>
-                            <Link to='/login' className='navbar-btn'>Kirish</Link>
-                            <Link to='/signup' className='navbar-btn'>Register</Link>
-                        </div>
+                        {
+                            login ? (
+                                <div>
+                                    <h3 className='username'><i className='fa fa-1x fa-user user-icon'></i>{username}</h3>
+                                    <Link to="/login" onClick = {() => {
+                                        setLogin(false)
+                                        setRole(false)
+                                        setAdmin(false)
+                                        window.localStorage.removeItem('access_token')
+                                        window.localStorage.removeItem('user_id')
+                                        window.localStorage.removeItem('username')
+                                        history.push('/login')
+                                    }} className='navbar-btn'>Chiqish</Link>
+                                </div>
+                            ) : (
+                                <div>
+                                    <Link to='/login' className='navbar-btn'>Kirish</Link>
+                                    <Link to='/signup' className='navbar-btn'>Register</Link>
+                                </div>
+
+                            )
+                        }
                     </div>
                 </nav>
             </div>

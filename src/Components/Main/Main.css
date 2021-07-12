@@ -83,15 +83,17 @@
     padding: 0;
     display: flex;
     justify-content: space-around;
-    align-items: center;
+    align-items: stretch;
     flex-wrap: wrap;
     margin-bottom: 100px;
+
 }
 
 .testimonial-item {
     width: 250px;
     text-align: center;
     margin: 25px 15px;
+    overflow: scroll;
 }
 
 .testimonial-text {
@@ -110,14 +112,19 @@
     color: #44425A;
     font-size: 16px;
     margin: 0;
-    padding: 0;
+    padding: 0 5px;
     font-weight: 600;
+    text-transform: capitalize;
+
 }
 
 .testimonial-profession {
-
+    padding: 0 5px;
 }
 
+.testimonial-reyting {
+    color: #FF6600;
+}
 
 
 @media only screen and (max-width: 870px) {
@@ -152,6 +159,11 @@
         font-size: 36px;
         margin-bottom: 40px;
     }
+
+    .btn-primary {
+        font-size: 16px;
+        padding: 6px 12px;
+    }
 }
 
 @media only screen and (max-width: 400px) {
@@ -171,5 +183,11 @@
     .testimonial-heading {
         font-size: 30px;
         margin-bottom: 20px;
+    }
+
+    .btn-primary {
+        padding: 4px 10px;
+        font-size: 14px;
+        font-weight: 400;
     }
 }

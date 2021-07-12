@@ -123,6 +123,20 @@ hr {
     margin: 0;
 }
 
+.username {
+    display: inline-block;
+    margin: 0;
+    padding: 0;
+    margin-left: 15px;
+    font-weight: 400;
+    color: #ff6600;
+}
+
+.user-icon {
+   color: #ff6600; 
+   margin-right: 10px;
+}
+
 .menu-btn {
     display: none;
 }

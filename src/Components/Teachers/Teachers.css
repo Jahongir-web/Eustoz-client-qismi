@@ -14,3 +14,21 @@
     margin-bottom: 20px;
     border-radius: 8px 8px 0 0;
 }
+
+.delete-btn {
+    color: #fff;
+    background-color: red;
+    margin-left: 20px;
+    border: none;
+    border-radius: 5px;
+    padding: 4px 8px;
+    margin-top: 5px;
+    cursor: pointer;
+    font-weight: 500;
+    font-size: 16px;
+    box-sizing: border-box;
+}
+
+.delete-btn:active {
+    transform: scale(0.9);
+}

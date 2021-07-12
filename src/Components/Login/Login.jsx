@@ -1,6 +1,12 @@
 import { useRef } from 'react'
+import { useHistory } from 'react-router-dom'
+import { useInfo } from '../../Context'
 
 function Login () {
+
+    const [, setLogin, , , , , , , , , urlServer] = useInfo()
+
+    const history = useHistory()
 
     const emailRef = useRef()
     const passwordRef = useRef()
@@ -30,19 +36,20 @@ function Login () {
                                 formData.append('email', emailRef.current.value)
                                 formData.append('password', passwordRef.current.value)
 
-                                const res = await fetch('http://localhost:4001/login', {
+                                const res = await fetch(`${urlServer}/login`, {
                                     method: "post",
                                     body: formData,
                                     redirect: 'follow'
                                 })
 
                                 let json = await res.json()
-
+                                
                                 if(json.accessToken) {
                                     window.localStorage.setItem('access_token', json.accessToken)
-                                    // setLogin(true)
-                                    // history.pushState('/')
+                                    setLogin(true)
+                                    history.push('/')
                                 }
+                                alert(json.message)
 
                             }}>
                                 <h2 className='signup-form-heading'>Kirish</h2>

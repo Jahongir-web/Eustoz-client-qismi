@@ -81,6 +81,7 @@
     margin: 0;
     margin-top: 25px;
     margin-left: 25px;
+    margin-bottom: 70px;
 }
 
 .questions-item {
@@ -111,6 +112,7 @@
     font-size: 14px;
     margin: 0;
     padding: 0;
+    white-space: nowrap;
 }
 
 
@@ -127,6 +129,13 @@
     .questions-list {
         margin-left: 0px;
         margin-bottom: 70px;
+        display: flex;
+        justify-content: space-around;
+        flex-wrap: wrap;
+    }
+
+    .questions-item {
+        margin: 20px;
     }
 }
 
