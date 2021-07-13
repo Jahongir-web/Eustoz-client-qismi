@@ -10,7 +10,7 @@ function InfoProvider ({children}) {
     const [username, setUsername] = useState(window.localStorage.getItem('username') || '')
     const [userId, setUserId] = useState(window.localStorage.getItem('user_id'))
     const [admin, setAdmin] = useState(false)
-    const [urlServer, setUrlServer] = useState('http://localhost:4001')
+    const [urlServer, setUrlServer] = useState('https://eustoz.herokuapp.com')
 
     const value = {
         login, 

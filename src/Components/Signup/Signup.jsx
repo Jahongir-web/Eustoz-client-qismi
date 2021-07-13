@@ -107,7 +107,10 @@ function Signup () {
                                         <select ref={subjectRef} name="subject" id="signup-subject">
                                             <option value="">Qaysi fandan</option>
                                             <option value="matematika">Matematika</option>
+                                            <option value="fizika">Fizika</option>
                                             <option value="kimyo">Kimyo</option>
+                                            <option value="biologiya">Biologiya</option>
+                                            <option value="ona-tili">Ona-tili</option>
                                             <option value="musiqa">Musiqa</option>
                                         </select>
                                     )
